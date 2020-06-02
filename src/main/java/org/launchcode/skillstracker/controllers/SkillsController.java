@@ -4,12 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@ResponseBody
-@RequestMapping(value = "favorite")
 public class SkillsController {
 
-    @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "")
-    public String programmingLanguages(@RequestParam String name, @RequestParam String programmingLanguages){
+    @RequestMapping(method=RequestMethod.GET,value = "")
+    @ResponseBody
+    public String programmingLanguages(){
         return "<html>" +
                 "<h1>Skills Tracker</h1>" +
                 "<body>" +
@@ -24,31 +23,30 @@ public class SkillsController {
     }
 
     @RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "form")
-    public String favoriteLanguageForm(){
+    @ResponseBody
+    public String favoriteLanguageForm(@RequestParam String name,@RequestParam String programmingLanguages){
         return "<html>" +
                 "<body>" +
-                "<form action='hello' method='post'>" +
-                "<input type='text' name='name" +
-                "<input type='submit' value='submit'>" +
+                "<form method='post' action='/form'>" +
+                "<input type='text' name='name'/>" +
+                "<input type='submit' value='submit'/>" +
                 "<label for='language-select'>Choose your " +
-                "favorite programming languages:" +
-                "</label>" +
+                "favorite programming languages:</label" +
                 "<ol>" +
                     "<li>" +
-                        "<select name='Favorite Programming language' id='language-select'>" +
-                            "<option value='Java'>Java</option>" +
-                            "<option value='JavaScript'>JavaScript</option>" +
-                            "<option value='C#'>C#</option>" +
-                            "<option value='C'>C</option>" +
-                            "<option value='C++>C++</option>" +
-                            "<option value='Python'>Python</option>" +
-                            "<option value='Ruby'>Ruby</option>" +
-                            "<option value='TypeScript'>TypeScript</option>" +
-                            "<option value='Swift'>Swift</option>" +
-                        "</select>" +
+                            "<select name='My Favorite Programming language' id='language-select'>" +
+                                "<option value='Java'>Java</option>" +
+                                "<option value='JavaScript'>JavaScript</option>" +
+                                "<option value='C#'>C#</option>" +
+                                "<option value='C'>C</option>" +
+                                "<option value='C++>C++</option>" +
+                                "<option value='Python'>Python</option>" +
+                                "<option value='Ruby'>Ruby</option>" +
+                                "<option value='TypeScript'>TypeScript</option>" +
+                                "<option value='Swift'>Swift</option>" +
+                            "</select>" +
                     "</li>" +
-                    "<li>" +
-                        "<select name='Second Favorite Programming language' id='language-select'>" +
+                        "<select name='My Second Favorite Programming language' id='language-select'>" +
                             "<option value='Java'>Java</option>" +
                             "<option value='JavaScript'>JavaScript</option> +" +
                             "<option value='C#'>C#</option> +" +
@@ -59,9 +57,8 @@ public class SkillsController {
                             "<option value='TypeScript'>TypeScript</option>" +
                             "<option value='Swift'>Swift</option>" +
                         "</select>" +
-                    "</li>" +
                     "<li>" +
-                        "<select name='Third Favorite Programming language' id='language-select'>" +
+                        "<select name='My Third Favorite Programming language' id='language-select'>" +
                             "<option value='Java'>Java</option>" +
                             "<option value='JavaScript'>JavaScript</option>" +
                             "<option value='C#'>C#</option>" +
