@@ -74,17 +74,29 @@ public class SkillsController {
                 "</html>";
     }
 
-    @PostMapping(value = "form")
+    @RequestMapping(method = RequestMethod.POST,value = "form")
     @ResponseBody
     public String getFavoriteLanguageFromForm(@RequestParam String name,@RequestParam String
                                               myFavoriteProgrammingLanguage,@RequestParam String
                                               mySecondFavoriteProgrammingLanguage,@RequestParam String
                                               myThirdFavoriteProgrammingLanguage){
-        return "<h1>" + name + "</h1>" +
-                "<ol>" +
-                    "<li>" + myFavoriteProgrammingLanguage + "</li>" +
-                    "<li>" + mySecondFavoriteProgrammingLanguage + "</li>" +
-                    "<li>" + myThirdFavoriteProgrammingLanguage + "</li>" +
-                "</ol>";
+        return "<html>" +
+                "<body>" +
+                "<h1>" + name + "</h1>" +
+                "<table border='1'>" +
+                    "<tr>" +
+                        "<th>My Favorite Programming Language</th>" +
+                        "<th>My Second Favorite Programming Language</th>" +
+                        "<th>My Third Favorite Programming Language</th>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td>" + myFavoriteProgrammingLanguage + "</td>" +
+                        "<td>" + mySecondFavoriteProgrammingLanguage + "</td>" +
+                        "<td>" + myThirdFavoriteProgrammingLanguage + "</td>" +
+                    "</tr>" +
+                "</table>" +
+                "</body>" +
+                "</html>";
     }
+
 }
